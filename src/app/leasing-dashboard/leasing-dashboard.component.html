@@ -1,0 +1,17 @@
+<p>leasing-dashboard works!</p>
+
+<ng-container *ngIf="(weathers$ | async) as weathers; else loading">
+    <div *ngFor="let weather of weathers">
+      <p> {{ weather.temperatureC }} </p>
+      <p> {{ weather.temperatureC }} </p>
+      <p> {{ weather.summary }} </p>
+      <p> ----------------------- </p>
+    </div>
+</ng-container>
+
+<ng-template #loading>
+    <p>Loading weather data...</p>
+</ng-template>
+
+
+<button (click)="refreshWeatherData()">Refresh weather data</button>
