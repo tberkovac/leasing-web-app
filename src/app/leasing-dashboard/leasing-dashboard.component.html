@@ -1,17 +1,55 @@
 <p>leasing-dashboard works!</p>
 
-<ng-container *ngIf="(weathers$ | async) as weathers; else loading">
-    <div *ngFor="let weather of weathers">
-      <p> {{ weather.temperatureC }} </p>
-      <p> {{ weather.temperatureC }} </p>
-      <p> {{ weather.summary }} </p>
-      <p> ----------------------- </p>
-    </div>
-</ng-container>
 
-<ng-template #loading>
-    <p>Loading weather data...</p>
-</ng-template>
+  <div *ngIf="(weathers$ | async) as weathers; else loading">
+    <div id="list1" cdkDropList cdkDropListData="weathers"  
+    cdkDropListConnectedTo="list2" >
+        <div *ngFor="let weather of weathers" cdkDrag>
+          <p> {{ weather.temperatureC }} </p>
+          <p> {{ weather.temperatureC }} </p>
+          <p> {{ weather.summary }} </p>
+          <p> ----------------------- </p>
+        </div>
+    </div>
+  </div>
+
+  <div class="drop-area" cdkDropList id="list2" (cdkDropListDropped)="dropNewWeatherInList($event)" >
+    <ul class="drop-area"></ul>
+  </div>
+  <ng-template #loading>
+      <p>Loading weather data...</p>
+  </ng-template>
+
+
+
+<!-- <div class="example-container">
+  <h2>To do</h2>
+
+  <div
+    cdkDropList
+    #todoList="cdkDropList"
+    [cdkDropListData]="todo"
+    [cdkDropListConnectedTo]="[doneList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+  </div>
+</div>
+
+<div class="example-container">
+  <h2>Done</h2>
+
+  <div
+    cdkDropList
+    #doneList="cdkDropList"
+    [cdkDropListData]="done"
+    [cdkDropListConnectedTo]="[todoList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+  </div>
+</div>
+ -->
 
 
 <button (click)="refreshWeatherData()">Refresh weather data</button>

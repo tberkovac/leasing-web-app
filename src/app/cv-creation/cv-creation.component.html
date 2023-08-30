@@ -1,0 +1,16 @@
+<p>cv-creation works!</p>
+
+<div cdkDrag>
+    <div *ngFor="let textField of textFields; let i = index; trackBy: trackByIndex">
+        <input
+            #inputField
+         type="text"
+         [(ngModel)]="textField.value"
+         (keyup.Enter)="createTextField(i)"
+         (keyup.Backspace)="removeTextField(i)"
+         [appFocus]="i === indexToFocus"
+         (focus)="setFocusedIndex(i)"
+         placeholder="Enter text"
+        />
+    </div>
+</div>
