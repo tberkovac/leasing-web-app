@@ -1,0 +1,18 @@
+.card {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    border: 1px solid sandybrown;
+    border-radius: 4px;
+}
+
+.removeIcon{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    z-index: 1;
+}

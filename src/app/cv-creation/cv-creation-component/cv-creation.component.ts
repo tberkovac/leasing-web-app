@@ -1,6 +1,8 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
-import { FocusDirective } from '../directives/focus.directive';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, Output, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
+import { FocusDirective } from '../../directives/focus.directive';
 import { CurrencyPipe } from '@angular/common';
+import { ComponentCard } from 'src/app/models/componentCard.model';
+import { InnerCardComponent } from 'src/app/models/innerCardComponent.model';
 
 @Component({
   selector: 'app-cv-creation',
@@ -11,7 +13,8 @@ import { CurrencyPipe } from '@angular/common';
 export class CvCreationComponent implements AfterViewInit {
   @ViewChildren('inputField') inputFields!: QueryList<ElementRef>;
 
-  textFields : any[] = [{value: 'good'}, {value: 'great'}]
+  @Input() textFields : InnerCardComponent[] = new Array()
+  @Output() onRemovedField: EventEmitter<InnerCardComponent[]> = new EventEmitter()
   indexToFocus = 0
 
   /**
@@ -37,9 +40,7 @@ export class CvCreationComponent implements AfterViewInit {
   createTextField(index: number): void {
     console.log('Created ' + index)
     this.textFields.splice(index + 1, 0, {value: ''}) 
- //   this.textFields = [...this.textFields];   
     this.setFocusedIndex(index+1)
-
   }
 
   removeTextField(index: number): void {
@@ -55,7 +56,6 @@ export class CvCreationComponent implements AfterViewInit {
     }
 
     this.textFields = [...this.textFields];
-
   }
 
   setFocusedIndex(index: number) {
@@ -64,5 +64,9 @@ export class CvCreationComponent implements AfterViewInit {
 
   trackByIndex(index: number, item: any) {
     return index;
+  }
+
+  removePart(content: InnerCardComponent[]) {
+    this.onRemovedField.emit(content)
   }
 }

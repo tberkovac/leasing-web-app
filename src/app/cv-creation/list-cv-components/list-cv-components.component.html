@@ -1,0 +1,9 @@
+<p>list-cv-components works!</p>
+
+<div *ngIf="(cvComponents$ | async) as cvComponents;">
+    <div class="componentsContainer">
+        <div *ngFor="let item of cvComponents" cdkDropList [cdkDropListData]="cvComponents">
+            <app-cv-creation [textFields]="item"></app-cv-creation>
+        </div>
+    </div>
+</div>
