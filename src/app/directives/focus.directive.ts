@@ -10,8 +10,10 @@ export class FocusDirective implements OnChanges {
   constructor(private el: ElementRef) {}
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['appFocus'] && this.appFocus && this.el.nativeElement.tagName === 'INPUT') {
+    console.log(this.el.nativeElement.tagName)
+    if (changes['appFocus'] && changes['appFocus'].currentValue === true  && this.el.nativeElement.tagName === 'TEXTAREA') {
       this.el.nativeElement.focus();
+      console.log('FOCUUUUUSEEED')
     }
   }
 }

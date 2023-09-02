@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { TrashComponent } from './cv-creation/trash/trash.component';
+import { ControlsComponent } from './cv-creation/controls/controls.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TrashComponent } from './cv-creation/trash/trash.component';
     ListCvComponentsComponent,
     CvPaperComponent,
     CreationHomeComponent,
-    TrashComponent
+    TrashComponent,
+    ControlsComponent
   ],
   imports: [
     BrowserModule,

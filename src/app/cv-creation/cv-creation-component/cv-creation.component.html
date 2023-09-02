@@ -2,8 +2,8 @@
     <p>Title</p>
     <div class="card" *ngFor="let textField of textFields; let i = index; trackBy: trackByIndex">
         <textarea #inputField type="text" [(ngModel)]="textField.value" (keyup.Enter)="createTextField(i)"
-            (keyup.Backspace)="removeTextField(i)" [appFocus]="i === indexToFocus" (focus)="setFocusedIndex(i)"
-             placeholder="Enter text">
+            (keyup.Backspace)="removeTextField(i)" [appFocus]="indexToFocus !== null && i === indexToFocus"
+            (focus)="setFocusedIndex(i)" placeholder="Enter text">
         </textarea>
     </div>
     <button class="removeIcon" (click)="removePart(textFields)">x</button>

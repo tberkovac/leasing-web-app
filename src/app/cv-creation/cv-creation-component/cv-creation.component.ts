@@ -10,22 +10,17 @@ import { InnerCardComponent } from 'src/app/models/innerCardComponent.model';
   styleUrls: ['./cv-creation.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CvCreationComponent implements AfterViewInit {
+export class CvCreationComponent {
   @ViewChildren('inputField') inputFields!: QueryList<ElementRef>;
 
   @Input() textFields : InnerCardComponent[] = new Array()
   @Output() onRemovedField: EventEmitter<InnerCardComponent[]> = new EventEmitter()
-  indexToFocus = 0
+  indexToFocus: number | null = null
 
   /**
    *
    */
   constructor(private renderer2: Renderer2, private cdr: ChangeDetectorRef) {
-  }
-
-  ngAfterViewInit(): void {
-    console.log('After view init')
-    console.log(this.inputFields)
   }
 
   changeValue(event: any, index: number): void {

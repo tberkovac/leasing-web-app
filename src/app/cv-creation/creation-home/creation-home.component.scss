@@ -1,20 +1,24 @@
 .container {
     display: flex;
     width: 100%;
-    
+    align-items: center;
 }
 
 .left-column {
-    flex: 40%;
-    margin-right: 10rem;
+    flex: 2;
+    margin-left: 10%;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
-.right-column {
-    flex: 50%;
+.paper {
+    flex: 2.5;
+    margin-right: 20%;
+    justify-content: center;
 }
 
-.trashIcon {
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
+.controls {
+    border: 1px solid sandybrown;
+    flex: 0.5;
+    margin-right: 10%;
 }
