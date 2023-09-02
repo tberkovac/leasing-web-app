@@ -1,7 +1,9 @@
-<div class="paper"  >
-    <ul class="drop-area" cdkDropList id="list2" [cdkDropListData]="paperComponents" (cdkDropListDropped)="dropNewComponentInList($event)">
+<div class="paper">
+    <ul class="drop-area" cdkDropList [cdkDropListData]="paperComponents"
+        (cdkDropListDropped)="dropNewComponentInList($event)">
         <li *ngFor="let component of paperComponents; let i = index" cdkDrag>
-            <app-cv-creation [textFields]="component" (onRemovedField)="removeComponentFromPage(component, i)"></app-cv-creation>
+            <app-cv-creation [textFields]="component"
+                (onRemovedField)="removeComponentFromPage(component, i)"></app-cv-creation>
         </li>
     </ul>
 </div>

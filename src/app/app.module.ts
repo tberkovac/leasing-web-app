@@ -12,6 +12,10 @@ import { FocusDirective } from './directives/focus.directive';
 import { ListCvComponentsComponent } from './cv-creation/list-cv-components/list-cv-components.component';
 import { CvPaperComponent } from './cv-creation/cv-paper/cv-paper.component';
 import { CreationHomeComponent } from './cv-creation/creation-home/creation-home.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { TrashComponent } from './cv-creation/trash/trash.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +25,18 @@ import { CreationHomeComponent } from './cv-creation/creation-home/creation-home
     CvCreationComponent,
     ListCvComponentsComponent,
     CvPaperComponent,
-    CreationHomeComponent
+    CreationHomeComponent,
+    TrashComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     DragDropModule,
+    MatDialogModule,
+    ScrollingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

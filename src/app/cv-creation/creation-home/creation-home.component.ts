@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TrashComponent } from '../trash/trash.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-creation-home',
@@ -6,8 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./creation-home.component.scss']
 })
 export class CreationHomeComponent {
-  
-  openTrash() {
 
+  constructor(public dialog: MatDialog) {}
+
+  openTrash(enterAnimationDuration: string, exitAnimationDuration: string) {
+    this.dialog.open(TrashComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });  
   }
 }

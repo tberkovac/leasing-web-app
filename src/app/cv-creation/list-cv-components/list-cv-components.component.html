@@ -1,9 +1,7 @@
-<p>list-cv-components works!</p>
-
-<div *ngIf="(cvComponents$ | async) as cvComponents;">
-    <div class="componentsContainer">
-        <div *ngFor="let item of cvComponents" cdkDropList [cdkDropListData]="cvComponents">
-            <app-cv-creation [textFields]="item"></app-cv-creation>
+<ng-container *ngIf="(cvComponents$ | async) as cvComponents;">
+    <cdk-virtual-scroll-viewport orientation="vertical" itemSize="120" class="scrolling-container">
+        <div *ngFor="let component of cvComponents"  cdkDropList [cdkDropListData]="cvComponents">
+            <app-cv-creation [textFields]="component"></app-cv-creation>
         </div>
-    </div>
-</div>
+    </cdk-virtual-scroll-viewport>
+</ng-container>

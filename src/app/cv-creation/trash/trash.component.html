@@ -1,0 +1,21 @@
+<!-- <div>
+    <div *ngIf="trashContent$ | async as trashContent">
+        <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="400" minBufferPx="200" maxBufferPx="400"
+            class="example-viewport">
+            <div *cdkVirtualFor="let component of trashContent">
+                <app-cv-creation [textFields]="component"></app-cv-creation>
+            </div>
+        </cdk-virtual-scroll-viewport>
+    </div>
+</div>  -->
+
+<div>
+    <div *ngIf="trashContent$ | async as trashContent">
+        <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="100"
+            class="example-viewport">
+            <div *cdkVirtualFor="let component of trashContent">
+                <app-cv-creation [textFields]="component"></app-cv-creation>
+            </div>
+        </cdk-virtual-scroll-viewport>
+    </div>
+</div>

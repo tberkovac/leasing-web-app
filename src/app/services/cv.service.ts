@@ -11,8 +11,13 @@ import { InnerCardComponent } from '../models/innerCardComponent.model';
 export class CvService {
     initialData: InnerCardComponent[][] = [[{value: 'good'}, {value: 'great'}],
     [{value: 'good2'}, {value: 'great2'}],
+    [{value: 'good3'}, {value: 'great3'}],
+    [{value: 'good'}, {value: 'great'}],
+    [{value: 'good2'}, {value: 'great2'}],
     [{value: 'good3'}, {value: 'great3'}]];
 
     cvComponents$: BehaviorSubject<InnerCardComponent[][]> = 
         new BehaviorSubject<InnerCardComponent[][]>(this.initialData)
+
+    componentsTrash$ = new BehaviorSubject<InnerCardComponent[][] | null>(this.initialData)
 }

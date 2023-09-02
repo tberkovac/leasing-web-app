@@ -7,10 +7,14 @@
 .left-column {
     flex: 40%;
     margin-right: 10rem;
-    /* Set the left column to occupy 40% of the available space */
 }
 
 .right-column {
     flex: 50%;
-    /* Set the right column to occupy 60% of the available space */
+}
+
+.trashIcon {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
 }
