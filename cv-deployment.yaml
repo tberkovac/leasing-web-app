@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cv-web-deployment
+  labels:
+    app: cv-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cv-web
+  template:
+    metadata:
+      labels:
+        app: cv-web
+    spec:
+      containers:
+      - name: cv-web
+        image: ghcr.io/tberkovac/cv-web:latest
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "600Mi"
+            cpu: "1"
+        ports:
+        - containerPort: 4200
+      imagePullSecrets:
+        - name: dockerconfigjson-github-com
+
+---
+
+apiVersion: v1
+kind: Service
+metadata: 
+  name: cv-web
+spec:
+  selector:
+    app: cv-web
+  ports:
+    - protocol: TCP
+      port: 81
+      targetPort: 4040
