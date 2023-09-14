@@ -13,3 +13,21 @@ jobs:
           docker login --username tberkovac --password ${{ secrets.GH_PAT }} ghcr.io
           docker build --tag ghcr.io/tberkovac/cv-web:latest .
           docker push ghcr.io/tberkovac/cv-web:latest
+      - name: Azure login
+        id: login
+        uses: azure/login@v1.4.3
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Set AKS context
+        id: set-context
+        uses: azure/aks-set-context@v3
+        with:
+          resource-group: 'cv-rg' 
+          cluster-name: 'cv-cluster'
+      - name: Deploy to AKS
+        id: deploy-aks
+        uses: Azure/k8s-deploy@v4
+        with:
+          namespace: 'default'
+          manifests: |
+            cv-deployment.yaml
