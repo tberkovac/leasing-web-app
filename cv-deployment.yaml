@@ -17,7 +17,6 @@ spec:
       containers:
       - name: cv-web
         image: ghcr.io/tberkovac/cv-web:latest
-        imagePullPolicy: Always
         resources:
           limits:
             memory: "2000Mi"
@@ -32,7 +31,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata: 
-  name: cv-web
+  name: cv-web-service
 spec:
   selector:
     app: cv-web
