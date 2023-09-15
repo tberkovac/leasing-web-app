@@ -56,4 +56,3 @@ jobs:
               with:
                 action: deploy
                 manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}
-                namespace: cv-manifesst-namespace
