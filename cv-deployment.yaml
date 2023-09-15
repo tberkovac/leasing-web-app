@@ -19,7 +19,7 @@ spec:
         image: ghcr.io/tberkovac/cv-web:latest
         resources:
           limits:
-            memory: "500Mi"
+            memory: "1000Mi"
             cpu: "1"
         ports:
         - containerPort: 4200
@@ -40,4 +40,3 @@ spec:
     - protocol: TCP
       port: 81
       targetPort: 4200
-      nodePort: 31000
